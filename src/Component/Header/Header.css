@@ -72,9 +72,13 @@ nav .fa-solid{
 }
 
 @media only screen and (max-width: 600px) {
+    .header {
+        background-image: url('../../img/photo_rbg.png');
+    }
+
     .header-text {
         color: #fff;
-        margin-top: 126%;
+        margin-top: 315px;
         font-size: 16px;
     }
 
@@ -87,12 +91,12 @@ nav .fa-solid{
         font-size: 25px;
     }
     nav ul{
-        background: #ff004f;
+        background: #1d1c1d;
         position: fixed;
         top: 0;
         right: -200px;
-        width: 200px;
-        height: 100vh;
+        width: 150px;
+        height: 300px;
         padding-top: 50px;
         z-index: 2;
         transition: right 0.5s;
@@ -108,11 +112,11 @@ nav .fa-solid{
         top: 25px;
         left: 25px;
     }
+
     .sidemenu {
-        right: -200px; /* Initially off-screen */
+        right: -200px;
       }
-      
       .sidemenu.open {
-        right: 0; /* When open, the menu slides into view */
+        right: 0;
       }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './Header.css'
 import {useTypewriter,cursor} from 'react-simple-typewriter'
 import akash from '../../img/Akash.png'
@@ -13,23 +13,38 @@ export const Header = () => {
     delaySpeed:40
   })
 
-  const[menu,setMenu]=useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
-  const openMenu=()=>{
-    setMenu(true);
+  useEffect(() => {
+      const handleScroll = () => {
+          if (window.scrollY > 0) {
+              setMenuVisible(false); // Hide menu if scrolled down
+          }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
+  }, []);
+
+  const openMenu = () => {
+      setMenuVisible(true);
   }
 
-  const closeMenu=()=>{
-    setMenu(false);
+  const closeMenu = () => {
+      setMenuVisible(false);
   }
 
+  
   return (
     <>
       <div className="header">
         <div className="container">
             <nav>
                 <h1 className='logo'><span className='letter'>A</span>kash.</h1>
-                <ul className={menu ? 'sidemenu open' : 'sidemenu'}>
+                <ul className={menuVisible ? 'sidemenu open' : 'sidemenu'}>
                     <li><Link activeClass="active" to="/" spy={true} smooth={true} offset={-100} duration={500}>Home</Link></li>
                     <li><Link activeClass="active" to="about" spy={true} smooth={true} offset={-100} duration={500}>About</Link></li>
                     <li><Link activeClass="active" to="services" spy={true} smooth={true} offset={-100} duration={500}>Services</Link></li>

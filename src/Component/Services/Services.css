@@ -39,3 +39,8 @@ i,h2,p{
     background:#ff004f;
     transform: translateY(-10px);
 }
+@media only screen and (max-width: 600px) {
+    .services-list{
+        margin-bottom: 50px;
+    }
+}
